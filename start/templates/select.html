@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select</title>
+</head>
+<body>
+    <p>당신이 뽑은 숫자는 무엇일까요??</p>
+    <p>힌트</p>
+    <div>당신 뽑은 숫자는</div>
+    {% if number|divisibleby:2 %}
+    <span>홀수입니다.</span>
+    {% else %}
+    <span>짝수입니다.</span>
+    {% endif %}
+    <br/>
+    <br/>
+
+    <a href="{% url 'result' %}"><button>결과보기</button></a>
+</body>
+</html>
