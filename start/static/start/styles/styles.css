@@ -1,0 +1,54 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lotto{
+    margin : 2rem 0;
+    width : 400px;
+}
+h1{
+    color : white;
+    margin-top : 10rem;
+    margin-bottom : 3rem;
+}
+.background{
+    position: absolute;
+    top : 0;
+    left: 0;
+    z-index: -1;
+    width : 100vw;
+    height: 100vh;
+    background: url("../images/web.jpg") center center / cover no-repeat;
+    opacity: 0.9;
+}
+.logo{
+    width : 500px;
+    margin-bottom: 2rem;
+}
+li{
+    list-style: none;
+}
+a{
+    color : white;
+    font-size : 1.5rem;
+    text-decoration: none;
+}
+.options{
+    margin-bottom : 2rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
+.number_input{
+    width : 430px;
+    font-size: 1.2rem;
+    padding : 0.2rem;
+    margin : 0.5rem 0;
+    text-align: center;
+}

@@ -1,22 +1,13 @@
+{% extends 'start/base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="kr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Django Start</title>
-</head>
-<body>
-    <p>Hello world 🚀</p>
-    <p>현재시간</p>
-    <p>{{ current_date|date:"Y년 m월 d일 H시 i분 s초" }}</p>
-    <br/>
-    <p>1 ~ 10 중에서 숫자 뽑기</p>
-    <a href="{% url 'select' %}"><button>뽑기</button></a>
-    <br/>
-    <br/>
-    <img src="{% static 'start/snow_tree.jpg' %}" alt="snow_tree" style="width : 200px" />
-</body>
-</html>
+{% block content %}
+    <div class="background"></div>
+    <h1>Hello Python & Django ⭐️</h1>
+    <img class="logo" src="{% static 'start/images/logo.png' %}" alt="logo"/>
+    <ul>
+        <li>
+            <a href="{% url 'select' %}">Select Your Lucky Numbers as LOTTO</a>
+        </li>
+    </ul>
+{% endblock %}
+
