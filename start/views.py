@@ -10,7 +10,7 @@ def index(request):
         'current_date': now
     }
     # return HttpResponse(template.render(context, request))
-    return render(request, 'index.html', context)  # 위에 코드를 아래와 같이 쓸 수 있다 : shortcut
+    return render(request, 'start/index.html', context)  # 위에 코드를 아래와 같이 쓸 수 있다 : shortcut
 
 
 def select(request):
@@ -18,11 +18,11 @@ def select(request):
     context = {
         'number': number
     }
-    return render(request, 'select.html', context)
+    return render(request, 'start/select.html', context)
 
 
 def result(request):
     context = {
         'numbers': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     }
-    return render(request, 'result.html', context)
+    return render(request, 'start/result.html', context)

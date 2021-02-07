@@ -1,5 +1,6 @@
+{% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -14,5 +15,8 @@
     <br/>
     <p>1 ~ 10 중에서 숫자 뽑기</p>
     <a href="{% url 'select' %}"><button>뽑기</button></a>
+    <br/>
+    <br/>
+    <img src="{% static 'start/snow_tree.jpg' %}" alt="snow_tree" style="width : 200px" />
 </body>
 </html>

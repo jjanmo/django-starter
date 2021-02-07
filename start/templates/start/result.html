@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,9 +9,11 @@
 </head>
 <body>
     <p>숫자 리스트</p>
+    <ul>
     {% for number in numbers %}
         <li>{{ number }}</li>
     {% endfor %}
     <a href="{% url 'index' %}"><button>홈</button></a>
+    </ul>
 </body>
 </html>
