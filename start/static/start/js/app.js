@@ -1,15 +1,12 @@
 const $options = document.querySelectorAll('input[name="option"]');
-const $form = document.querySelector('.form');
-const $autoButton = document.querySelector('.auto_button');
+const $inputContainer = document.querySelector('.input_container');
 
 const handleChange = (e) => {
     const option = e.target.value;
     if(option === '자동'){
-        $form.classList.add('hidden');
-        $autoButton.classList.remove('hidden');
+        $inputContainer.classList.add('hidden');
     } else {
-        $form.classList.remove('hidden');
-        $autoButton.classList.add('hidden');
+        $inputContainer.classList.remove('hidden');
     }
 }
 

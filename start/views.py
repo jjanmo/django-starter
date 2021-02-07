@@ -14,15 +14,23 @@ def index(request):
 
 
 def select(request):
-    number = random.randrange(1, 11)
-    context = {
-        'number': number
-    }
+    context = {}
     return render(request, 'start/select.html', context)
 
 
 def result(request):
+    numbers = request.GET['numbers']
+    if numbers == '':
+        selected = []
+        while len(selected) < 6:
+            tmp = random.randrange(1, 46)
+            if tmp in selected:
+                continue
+            else:
+                selected.append(tmp)
+    else:
+        selected = list(map(int, numbers.split(',')))
     context = {
-        'numbers': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        "numbers": selected
     }
     return render(request, 'start/result.html', context)
