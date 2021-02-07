@@ -1,24 +1,28 @@
-<!doctype html>
-<html lang="kr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Select</title>
-</head>
-<body>
-    <p>당신이 뽑은 숫자는 무엇일까요??</p>
-    <p>힌트</p>
-    <div>당신 뽑은 숫자는</div>
-    {% if number|divisibleby:2 %}
-    <span>홀수입니다.</span>
-    {% else %}
-    <span>짝수입니다.</span>
-    {% endif %}
+{% extends 'start/base.html' %}
+{% load static %}
+{% block content %}
+        <img class="lotto" src="{% static 'start/images/lotto.png' %}" alt="lotto" />
     <br/>
-    <br/>
+    <div class="options">
+        <label for="auto">
+            <input type="radio" id="auto" name="option" value="자동" checked/>
+            자동
+        </label>
+        <label for="manual">
+            <input type="radio" id="manual" name="option" value="수동"/>
+            수동
+        </label>
+    </div>
+    <div class="form hidden">
+        <form method="get" action="{% url 'result' %}">
+            <p>1 ~ 45번까지의 숫자 중에서 [ 번호,번호,...] 형식 으로 6개를 적으세요</p>
+            <input type="text" class="number_input" name="numbers" placeholder="Good Luck 🤞🏼" />
+            <br/>
+            <input type="submit" value="제출" />
+        </form>
+    </div>
+    <div class="auto_button">
+        <a href="{% url 'result' %}"><button>뽑기</button></a>
+    </div>
+{% endblock %}
 
-    <a href="{% url 'result' %}"><button>결과보기</button></a>
-</body>
-</html>
