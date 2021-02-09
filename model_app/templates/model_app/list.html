@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+    <h1>List Result</h1>
+    <ul>
+    {% for item in list %}
+        <li>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.content }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
