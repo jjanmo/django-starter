@@ -5,6 +5,16 @@
     <title>Cafe</title>
 </head>
 <body>
-    <h1>Cafe List</h1>
+    <h1>Favorite Cafe List</h1>
+    <ul>
+        {% for cafe in cafes %}
+        <li>
+            <h3>{{ cafe.name }}</h3>
+            <div>
+                <span>Address : </span> &nbsp;
+                <span>{{ cafe.address }}</span>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
