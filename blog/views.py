@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from blog.models import Cafe
 from django.core.paginator import Paginator
@@ -25,3 +25,20 @@ def form(request):
 
     form = PostForm()
     return render(request, 'blog/form.html', {'form': form})
+
+
+def update(request):
+    if request.method == 'POST':
+        print(request.POST.get('id'))
+        # updating_item = Cafe.objecets.get(pk=request.POST.get('id'))
+        updating_item = get_object_or_404(Cafe, pk=request.POST.get('id'))
+        form = PostForm(request.POST, instance=updating_item)  # instance를 넣어주면 해당 아이템를 폼에 업데이트 하게 된다
+        if form.is_valid():
+            updated_item = form.save()
+    elif request.method == 'GET':
+        # updating_item = Cafe.objects.get(pk=request.GET.get('id'))
+        updating_item = get_object_or_404(Cafe, pk=request.GET.get('id'))
+        form = PostForm(instance=updating_item)
+        return render(request, 'blog/update.html', {'form': form})
+
+    return HttpResponseRedirect('/blog/list/')

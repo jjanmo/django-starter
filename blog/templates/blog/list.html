@@ -15,7 +15,7 @@
             <span class="card-text">등록일 : {{ cafe.created_at|date:'Y.m.d H.i.s' }}</span>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <a href="#" class="btn btn-outline-primary">Detail 🍮 </a>
-              <a href="#" class="btn btn-outline-secondary">Update 📝 </a>
+              <a href="{% url 'update' %}?id={{ cafe.id }}" class="btn btn-outline-secondary">Update 📝 </a>
             </div>
           </div>
         </div>
