@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <div style="margin : 2rem  3rem">
+        <form action="{% url 'form' %}" method="post">
+          <table>
+            {% csrf_token %} {{ form.as_table }}
+          </table>
+          <input type="submit" value="등록" />
+        </form>
+    </div>
+{% endblock %}

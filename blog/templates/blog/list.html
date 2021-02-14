@@ -1,4 +1,6 @@
-{% extends 'blog/base.html' %} {% load static %} {% block content %}
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
 <div style="margin: 2rem 3rem">
   <h1>Favorite Cafe List</h1>
   <ul>
@@ -10,6 +12,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ cafe.name }}</h5>
             <p class="card-text">{{ cafe.address }}</p>
+            <span class="card-text">등록일 : {{ cafe.created_at|date:'Y.m.d H.i.s' }}</span>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <a href="#" class="btn btn-outline-primary">Detail 🍮 </a>
               <a href="#" class="btn btn-outline-secondary">Update 📝 </a>
@@ -29,7 +32,7 @@
       >
       {% endif %}
 
-      <span class="text-dark fs-5"> &nbsp;Page {{ cafes.number }} of {{ cafes.paginator.num_pages }}&nbsp; </span>
+      <span class="text-dark fs-5"> &nbsp; {{ cafes.number }} &nbsp; </span>
 
       {% if cafes.has_next %}
       <a class="text-decoration-none text-secondary" href="?page={{ cafes.next_page_number }}"
