@@ -1,23 +1,43 @@
-{% extends 'blog/base.html' %}
-{% load static %}
-{% block content %}
-    <div style="margin : 2rem 3rem;">
-        <h1>Favorite Cafe List</h1>
-        <ul>
-            {% for cafe in cafes %}
-                <li class="row" style="margin-bottom : 1rem;">
-                    <div class="col-md-6" >
-                        <div class="card">
-    {#                      <img src="..." class="card-img-top" alt="...">#}
-                          <div class="card-body">
-                            <h5 class="card-title">{{ cafe.name}}</h5>
-                            <p class="card-text">{{ cafe.address}}</p>
-                            <a href="#" class="btn btn-primary">Detail 🍮 </a>
-                          </div>
-                        </div>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+{% extends 'blog/base.html' %} {% load static %} {% block content %}
+<div style="margin: 2rem 3rem">
+  <h1>Favorite Cafe List</h1>
+  <ul>
+    {% for cafe in cafes %}
+    <li class="row" style="margin-bottom: 1rem">
+      <div class="col-md-6">
+        <div class="card">
+          <!-- <img src="..." class="card-img-top" alt="..." /> -->
+          <div class="card-body">
+            <h5 class="card-title">{{ cafe.name }}</h5>
+            <p class="card-text">{{ cafe.address }}</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <a href="#" class="btn btn-outline-primary">Detail 🍮 </a>
+              <a href="#" class="btn btn-outline-secondary">Update 📝 </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="text-center" style="margin-top: 1rem">
+    <span class="">
+      {% if cafes.has_previous %}
+      <a class="text-decoration-none text-secondary" href="?page=1">&laquo;&nbsp;</a>
+      <a class="text-decoration-none text-secondary" href="?page={{ cafes.previous_page_number }}"
+        >{{cafes.previous_page_number}}</a
+      >
+      {% endif %}
+
+      <span class="text-dark fs-5"> &nbsp;Page {{ cafes.number }} of {{ cafes.paginator.num_pages }}&nbsp; </span>
+
+      {% if cafes.has_next %}
+      <a class="text-decoration-none text-secondary" href="?page={{ cafes.next_page_number }}"
+        >{{cafes.next_page_number}}</a
+      >
+      <a class="text-decoration-none text-secondary" href="?page={{ cafes.paginator.num_pages }}">&nbsp;&raquo;</a>
+      {% endif %}
+    </span>
+  </div>
+</div>
 {% endblock %}
