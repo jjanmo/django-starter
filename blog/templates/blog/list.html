@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cafe</title>
-</head>
-<body>
-    <h1>Favorite Cafe List</h1>
-    <ul>
-        {% for cafe in cafes %}
-        <li>
-            <h3>{{ cafe.name }}</h3>
-            <div>
-                <span>Address : </span> &nbsp;
-                <span>{{ cafe.address }}</span>
-        </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <div style="margin : 2rem 3rem;">
+        <h1>Favorite Cafe List</h1>
+        <ul>
+            {% for cafe in cafes %}
+                <li class="row" style="margin-bottom : 1rem;">
+                    <div class="col-md-6" >
+                        <div class="card">
+    {#                      <img src="..." class="card-img-top" alt="...">#}
+                          <div class="card-body">
+                            <h5 class="card-title">{{ cafe.name}}</h5>
+                            <p class="card-text">{{ cafe.address}}</p>
+                            <a href="#" class="btn btn-primary">Detail 🍮 </a>
+                          </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
