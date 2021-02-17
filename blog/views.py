@@ -52,3 +52,10 @@ def detail(request):
         }
         return render(request, 'blog/detail.html', context)
     return HttpResponseRedirect('/blog/list')
+
+
+def delete(request):
+    if 'id' in request.GET:
+        item = get_object_or_404(Cafe, pk=request.GET.get('id'))
+        item.delete()
+    return HttpResponseRedirect('/blog/list/')
