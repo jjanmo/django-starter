@@ -30,7 +30,7 @@ def form(request):
 def update(request):
     if request.method == 'POST':
         print(request.POST.get('id'))
-        # updating_item = Cafe.objecets.get(pk=request.POST.get('id'))
+        # updating_item = Cafe.objects.get(pk=request.POST.get('id'))
         updating_item = get_object_or_404(Cafe, pk=request.POST.get('id'))
         form = PostForm(request.POST, instance=updating_item)  # instance를 넣어주면 해당 아이템를 폼에 업데이트 하게 된다
         if form.is_valid():
@@ -42,3 +42,13 @@ def update(request):
         return render(request, 'blog/update.html', {'form': form})
 
     return HttpResponseRedirect('/blog/list/')
+
+
+def detail(request):
+    if 'id' in request.GET:
+        item = get_object_or_404(Cafe, pk=request.GET.get('id'))
+        context = {
+            'cafe': item
+        }
+        return render(request, 'blog/detail.html', context)
+    return HttpResponseRedirect('/blog/list')
