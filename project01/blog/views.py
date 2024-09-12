@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
-from blog.models import Cafe
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+
 from blog.forms import PostForm
+from blog.models import Cafe
 
 
 def list(request):

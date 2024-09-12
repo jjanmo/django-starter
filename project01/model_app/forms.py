@@ -6,8 +6,9 @@
 #     content = forms.CharField(label="내용", widget=forms.Textarea)
 
 from django.forms import ModelForm
-from model_app.models import Post
 from django.utils.translation import gettext_lazy as _  # django 다국어 지원 관련
+
+from model_app.models import Post
 
 
 class PostForm(ModelForm):

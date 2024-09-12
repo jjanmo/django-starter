@@ -116,4 +116,4 @@ media/
 # !**/migrations/__init__.py
 
 .idea
-*secrets.json
+secrets.json
